@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import Create from "./components/Create";
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import axios from "axios";
+import Read from "./components/Read";
+import Update from "./components/Update";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const [APIData, setAPIData] = useState([]);
+
+  const fetchData = async () => {
+    const data = await axios.get(
+      "https://6130665a5fc50700175f189a.mockapi.io/mockData"
+    );
+    setAPIData(data.data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="main">
+          <h2 className="main-header">React Crud Operations</h2>
+          {/* <Switch> */}
+          <Navbar />
+          <div>
+            <Route
+              exact
+              path="/"
+              render={(props) => <Create {...props} fetchData={fetchData} />}
+            />
+          </div>
+          <div>
+            <Route
+              exact
+              path="/"
+              render={(routeProps) => (
+                <Read {...routeProps} APIData={APIData} fetchData={fetchData} />
+              )}
+            />
+          </div>
+          <div>
+            <Route exact path="/update" component={Update} />
+          </div>
+          {/* </Switch> */}
+        </div>
+      </div>
+    </Router>
   );
 }
 
