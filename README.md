@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# CRUD React App v1 
+
+Made with React, Mock API, Semantic UI and CSS.
+
+[Live Demo](https://dmitriy24s.github.io/crud-v1-react/) 👈
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
