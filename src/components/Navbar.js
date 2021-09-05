@@ -5,14 +5,14 @@ function Navbar() {
     <div className="navbar">
       <NavLink
         exact
-        to="/"
+        to="/crud-v1-react/read"
         activeStyle={{ color: "red" }}
         style={{ paddingRight: 30 }}
       >
         Create & Read
       </NavLink>
       <NavLink
-        to="/update"
+        to="/crud-v1-react/update"
         activeStyle={{ color: "red" }}
         style={{ paddingRight: 30 }}
       >

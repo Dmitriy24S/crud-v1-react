@@ -37,7 +37,7 @@ const Read = ({ APIData, fetchData }) => {
                 <Table.Cell>
                   <Link
                     to={{
-                      pathname: "/update",
+                      pathname: "/crud-v1-react/update",
                       state: {
                         id: data.id,
                       },

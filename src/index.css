@@ -5,6 +5,12 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #212121 !important;
+}
+.App {
+  background-color: #212121;
+  position: relative;
+  top: 100px;
 }
 
 .main {
@@ -13,7 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   color: white;
   font-family: "Montserrat", sans-serif;
@@ -21,6 +26,10 @@ body {
 
 .main-header {
   font-family: "Montserrat", sans-serif;
+}
+
+.main-header a {
+  color: white !important;
 }
 
 .create-form label {
@@ -38,6 +47,5 @@ table {
   align-items: center;
   display: flex;
   justify-content: center;
-  justify-content: space-between;
   margin-bottom: 10px;
 }

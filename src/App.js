@@ -1,7 +1,7 @@
 import Create from "./components/Create";
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import Read from "./components/Read";
 import Update from "./components/Update";
@@ -21,27 +21,31 @@ function App() {
     <Router>
       <div className="App">
         <div className="main">
-          <h2 className="main-header">React Crud Operations</h2>
+          <h2 className="main-header">
+            <Link exact to="/crud-v1-react/">
+              React Crud Operations
+            </Link>
+          </h2>
           {/* <Switch> */}
           <Navbar />
           <div>
             <Route
               exact
-              path="/"
+              path="/crud-v1-react/read"
               render={(props) => <Create {...props} fetchData={fetchData} />}
             />
           </div>
           <div>
             <Route
               exact
-              path="/"
+              path="/crud-v1-react/read"
               render={(routeProps) => (
                 <Read {...routeProps} APIData={APIData} fetchData={fetchData} />
               )}
             />
           </div>
           <div>
-            <Route exact path="/update" component={Update} />
+            <Route exact path="/crud-v1-react/update" component={Update} />
           </div>
           {/* </Switch> */}
         </div>

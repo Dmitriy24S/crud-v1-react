@@ -9,9 +9,10 @@ const Update = () => {
   const [lastName, setLastName] = useState("");
   const [checkbox, setCheckbox] = useState(false);
 
-  let history = useHistory();
   const location = useLocation();
   const { id } = location.state ? location.state : "";
+
+  let history = useHistory();
 
   const updateAPIData = () => {
     axios
@@ -20,7 +21,7 @@ const Update = () => {
         lastName,
         checkbox,
       })
-      .then(() => history.push("/"));
+      .then(() => history.push("/crud-v1-react/read"));
   };
 
   return (
