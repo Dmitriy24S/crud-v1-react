@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Table } from "semantic-ui-react";
-import { Button, Checkbox } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -32,14 +32,19 @@ const Read = ({ APIData, fetchData }) => {
             return (
               <Table.Row key={data.id}>
                 <Table.Cell>{data.firstName}</Table.Cell>
-                <Table.Cell>{data.lastName}t</Table.Cell>
-                <Table.Cell>{Checkbox ? "Checked" : "Unchecked"}</Table.Cell>
+                <Table.Cell>{data.lastName}</Table.Cell>
+                <Table.Cell>
+                  {data.checkbox ? "Checked" : "Unchecked"}
+                </Table.Cell>
                 <Table.Cell>
                   <Link
                     to={{
                       pathname: "/crud-v1-react/update",
                       state: {
                         id: data.id,
+                        firstNameState: data.firstName,
+                        lastNameState: data.lastName,
+                        checkboxState: data.checkbox,
                       },
                     }}
                   >

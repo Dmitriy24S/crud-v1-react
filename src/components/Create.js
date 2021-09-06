@@ -41,7 +41,10 @@ const Create = ({ fetchData }) => {
         />
       </Form.Field>
       <Form.Field>
-        <Checkbox label="I agree to the Terms and Conditions" />
+        <Checkbox
+          label="I agree to the Terms and Conditions"
+          onChange={(e) => setCheckbox(!checkbox)}
+        />
       </Form.Field>
       <Button color="blue" type="submit" onClick={handleSubmit}>
         Submit

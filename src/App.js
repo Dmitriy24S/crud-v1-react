@@ -1,7 +1,7 @@
 import Create from "./components/Create";
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Switch, NavLink, Link } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import axios from "axios";
 import Read from "./components/Read";
 import Update from "./components/Update";
@@ -39,8 +39,8 @@ function App() {
             <Route
               exact
               path="/crud-v1-react/read"
-              render={(routeProps) => (
-                <Read {...routeProps} APIData={APIData} fetchData={fetchData} />
+              render={(props) => (
+                <Read {...props} APIData={APIData} fetchData={fetchData} />
               )}
             />
           </div>

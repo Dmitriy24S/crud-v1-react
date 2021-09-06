@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
 import { useHistory } from "react-router";
@@ -12,6 +12,10 @@ const Update = () => {
   const location = useLocation();
   const { id } = location.state ? location.state : "";
 
+  const { firstNameState } = location.state ? location.state : "";
+  const { lastNameState } = location.state ? location.state : "";
+  const { checkboxState } = location.state ? location.state : "";
+
   let history = useHistory();
 
   const updateAPIData = () => {
@@ -24,6 +28,12 @@ const Update = () => {
       .then(() => history.push("/crud-v1-react/read"));
   };
 
+  useEffect(() => {
+    setFirstName(firstNameState);
+    setLastName(lastNameState);
+    setCheckbox(checkboxState);
+  }, []);
+
   return (
     <Form className="create-form">
       <Form.Field>
@@ -31,6 +41,7 @@ const Update = () => {
         <input
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
         />
       </Form.Field>
       <Form.Field>
@@ -38,10 +49,15 @@ const Update = () => {
         <input
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
         />
       </Form.Field>
       <Form.Field>
-        <Checkbox label="I agree to the Terms and Conditions" />
+        <Checkbox
+          label="I agree to the Terms and Conditions"
+          onChange={(e) => setCheckbox(!checkbox)}
+          checked={checkbox}
+        />
       </Form.Field>
       <Button color="green" type="submit" onClick={updateAPIData}>
         Update
